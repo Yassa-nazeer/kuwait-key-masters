@@ -1,91 +1,281 @@
+import { useMemo, useState } from "react";
+import { Search, Phone, MessageCircle, KeyRound, Cpu, Fingerprint, Car as CarIcon, X } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import CTASection from "@/components/CTASection";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import keysImg from "@/assets/car-keys.jpg";
 
-const brands = [
-  { name: "تويوتا", category: "ياباني", color: "from-red-500/20 to-red-600/10" },
-  { name: "لكزس", category: "ياباني فاخر", color: "from-slate-400/20 to-slate-500/10" },
-  { name: "نيسان", category: "ياباني", color: "from-red-600/20 to-red-700/10" },
-  { name: "هوندا", category: "ياباني", color: "from-blue-500/20 to-blue-600/10" },
-  { name: "ميتسوبيشي", category: "ياباني", color: "from-red-500/20 to-orange-500/10" },
-  { name: "مرسيدس", category: "ألماني فاخر", color: "from-slate-300/20 to-slate-400/10" },
-  { name: "BMW", category: "ألماني فاخر", color: "from-blue-400/20 to-blue-500/10" },
-  { name: "أودي", category: "ألماني فاخر", color: "from-slate-400/20 to-red-500/10" },
-  { name: "بورش", category: "رياضي فاخر", color: "from-yellow-500/20 to-amber-600/10" },
-  { name: "فولكس فاجن", category: "ألماني", color: "from-blue-600/20 to-blue-700/10" },
-  { name: "هيونداي", category: "كوري", color: "from-blue-500/20 to-cyan-500/10" },
-  { name: "كيا", category: "كوري", color: "from-red-600/20 to-orange-500/10" },
-  { name: "جينيسيس", category: "كوري فاخر", color: "from-slate-500/20 to-slate-600/10" },
-  { name: "فورد", category: "أمريكي", color: "from-blue-700/20 to-blue-800/10" },
-  { name: "شيفروليه", category: "أمريكي", color: "from-yellow-500/20 to-amber-600/10" },
-  { name: "GMC", category: "أمريكي", color: "from-red-600/20 to-red-700/10" },
-  { name: "كرايسلر", category: "أمريكي", color: "from-slate-400/20 to-slate-500/10" },
-  { name: "دودج", category: "أمريكي", color: "from-red-500/20 to-red-600/10" },
-  { name: "جيب", category: "دفع رباعي", color: "from-green-600/20 to-green-700/10" },
-  { name: "لاند روفر", category: "بريطاني فاخر", color: "from-green-500/20 to-emerald-600/10" },
-  { name: "رنج روفر", category: "بريطاني فاخر", color: "from-slate-500/20 to-slate-700/10" },
-  { name: "جاكوار", category: "بريطاني فاخر", color: "from-amber-500/20 to-yellow-600/10" },
-  { name: "بنتلي", category: "فاخر", color: "from-amber-600/20 to-yellow-700/10" },
-  { name: "رولز رويس", category: "فاخر جداً", color: "from-slate-300/20 to-amber-400/10" },
-  { name: "فيراري", category: "رياضي", color: "from-red-600/20 to-red-700/10" },
-  { name: "لامبورجيني", category: "رياضي", color: "from-yellow-500/20 to-orange-600/10" },
-  { name: "مازيراتي", category: "رياضي فاخر", color: "from-blue-600/20 to-slate-600/10" },
-  { name: "إنفينيتي", category: "ياباني فاخر", color: "from-slate-400/20 to-slate-500/10" },
-  { name: "أكورا", category: "ياباني فاخر", color: "from-slate-500/20 to-red-500/10" },
-  { name: "سوزوكي", category: "ياباني", color: "from-red-500/20 to-blue-500/10" },
-];
+const PHONE = "96566610023";
+const WA_LINK = (text: string) =>
+  `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
 
-const keyTypes = [
-  { title: "مفاتيح ذكية (بصمة)", desc: "Smart Keys - مفاتيح بدون لمس مع زر تشغيل" },
-  { title: "مفاتيح ريموت", desc: "ريموت كنترول قابل للطي مع شفرة مفتاح" },
-  { title: "مفاتيح عادية وكتالوج", desc: "مفاتيح ميكانيكية تقليدية للسيارات القديمة" },
-  { title: "مفاتيح جلد فاخرة", desc: "أغلفة جلدية فاخرة لحماية مفتاحك" },
+type KeyKind = "smart" | "remote" | "regular" | "transponder";
+
+interface Brand {
+  name: string;
+  en: string;
+  category: string;
+  keys: KeyKind[];
+  popular?: string[];
+}
+
+const KEY_LABEL: Record<KeyKind, { ar: string; icon: typeof KeyRound }> = {
+  smart: { ar: "مفتاح ذكي (سمارت)", icon: Fingerprint },
+  remote: { ar: "ريموت قابل للطي", icon: Cpu },
+  regular: { ar: "مفتاح عادي / كتالوج", icon: KeyRound },
+  transponder: { ar: "مفتاح شرائحي (شفرة)", icon: KeyRound },
+};
+
+const CATEGORIES = [
+  "الكل",
+  "ياباني",
+  "ألماني",
+  "أمريكي",
+  "كوري",
+  "بريطاني",
+  "إيطالي",
+  "فاخر",
+] as const;
+
+const BRANDS: Brand[] = [
+  { name: "تويوتا", en: "Toyota", category: "ياباني", keys: ["smart", "remote", "transponder"], popular: ["كامري", "كورولا", "لاندكروزر", "برادو"] },
+  { name: "لكزس", en: "Lexus", category: "فاخر", keys: ["smart", "remote"], popular: ["LX 570", "ES", "RX", "GX"] },
+  { name: "نيسان", en: "Nissan", category: "ياباني", keys: ["smart", "remote", "transponder"], popular: ["باترول", "صني", "التيما", "ماكسيما"] },
+  { name: "هوندا", en: "Honda", category: "ياباني", keys: ["smart", "remote"], popular: ["أكورد", "سيفيك", "CR-V"] },
+  { name: "ميتسوبيشي", en: "Mitsubishi", category: "ياباني", keys: ["remote", "transponder"], popular: ["باجيرو", "لانسر", "ASX"] },
+  { name: "مازدا", en: "Mazda", category: "ياباني", keys: ["smart", "remote"], popular: ["6", "CX-5", "CX-9"] },
+  { name: "سوزوكي", en: "Suzuki", category: "ياباني", keys: ["remote", "transponder"], popular: ["جراند فيتارا", "سويفت"] },
+  { name: "إنفينيتي", en: "Infiniti", category: "فاخر", keys: ["smart", "remote"], popular: ["QX80", "Q50", "QX60"] },
+  { name: "أكورا", en: "Acura", category: "فاخر", keys: ["smart", "remote"], popular: ["MDX", "TLX"] },
+
+  { name: "مرسيدس", en: "Mercedes", category: "ألماني", keys: ["smart", "remote"], popular: ["S-Class", "E-Class", "G-Class", "GLE"] },
+  { name: "BMW", en: "BMW", category: "ألماني", keys: ["smart", "remote"], popular: ["X5", "X7", "7 Series", "5 Series"] },
+  { name: "أودي", en: "Audi", category: "ألماني", keys: ["smart", "remote"], popular: ["Q7", "Q8", "A6", "A8"] },
+  { name: "بورش", en: "Porsche", category: "فاخر", keys: ["smart", "remote"], popular: ["كايين", "باناميرا", "ماكان"] },
+  { name: "فولكس فاجن", en: "Volkswagen", category: "ألماني", keys: ["smart", "remote", "transponder"], popular: ["تيجوان", "باسات", "جولف"] },
+
+  { name: "هيونداي", en: "Hyundai", category: "كوري", keys: ["smart", "remote", "transponder"], popular: ["سوناتا", "إلنترا", "توسان", "سنتافي"] },
+  { name: "كيا", en: "Kia", category: "كوري", keys: ["smart", "remote", "transponder"], popular: ["سيراتو", "سبورتاج", "سورنتو", "تيلورايد"] },
+  { name: "جينيسيس", en: "Genesis", category: "كوري", keys: ["smart", "remote"], popular: ["G80", "G90", "GV80"] },
+
+  { name: "فورد", en: "Ford", category: "أمريكي", keys: ["smart", "remote", "transponder"], popular: ["إكسبيديشن", "إكسبلورر", "موستانج", "F-150"] },
+  { name: "شيفروليه", en: "Chevrolet", category: "أمريكي", keys: ["remote", "transponder"], popular: ["تاهو", "سوبربان", "كمارو", "إمبالا"] },
+  { name: "GMC", en: "GMC", category: "أمريكي", keys: ["smart", "remote"], popular: ["يوكن", "سييرا", "أكاديا"] },
+  { name: "كاديلاك", en: "Cadillac", category: "أمريكي", keys: ["smart", "remote"], popular: ["إسكاليد", "CT6", "XT5"] },
+  { name: "كرايسلر", en: "Chrysler", category: "أمريكي", keys: ["remote", "transponder"], popular: ["300C"] },
+  { name: "دودج", en: "Dodge", category: "أمريكي", keys: ["remote", "transponder"], popular: ["تشارجر", "تشالنجر", "دورانجو"] },
+  { name: "جيب", en: "Jeep", category: "أمريكي", keys: ["smart", "remote"], popular: ["جراند شيروكي", "رانجلر"] },
+  { name: "لينكولن", en: "Lincoln", category: "أمريكي", keys: ["smart", "remote"], popular: ["نافيجيتور", "أفياتور"] },
+
+  { name: "لاند روفر", en: "Land Rover", category: "بريطاني", keys: ["smart", "remote"], popular: ["ديسكفري", "ديفندر"] },
+  { name: "رنج روفر", en: "Range Rover", category: "بريطاني", keys: ["smart", "remote"], popular: ["فوج", "سبورت", "إيفوك"] },
+  { name: "جاكوار", en: "Jaguar", category: "بريطاني", keys: ["smart", "remote"], popular: ["F-Pace", "XF"] },
+  { name: "بنتلي", en: "Bentley", category: "فاخر", keys: ["smart"], popular: ["كونتيننتال", "بنتايجا"] },
+  { name: "رولز رويس", en: "Rolls-Royce", category: "فاخر", keys: ["smart"], popular: ["جوست", "كولينان"] },
+
+  { name: "فيراري", en: "Ferrari", category: "إيطالي", keys: ["smart"], popular: ["488", "روما"] },
+  { name: "لامبورجيني", en: "Lamborghini", category: "إيطالي", keys: ["smart"], popular: ["أوروس", "هوراكان"] },
+  { name: "مازيراتي", en: "Maserati", category: "إيطالي", keys: ["smart", "remote"], popular: ["جيبلي", "ليفانتي"] },
 ];
 
 const Cars = () => {
+  const [query, setQuery] = useState("");
+  const [activeCat, setActiveCat] = useState<(typeof CATEGORIES)[number]>("الكل");
+  const [selected, setSelected] = useState<Brand | null>(null);
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return BRANDS.filter((b) => {
+      const matchCat = activeCat === "الكل" || b.category === activeCat;
+      const matchQ =
+        !q ||
+        b.name.toLowerCase().includes(q) ||
+        b.en.toLowerCase().includes(q) ||
+        (b.popular || []).some((p) => p.toLowerCase().includes(q));
+      return matchCat && matchQ;
+    });
+  }, [query, activeCat]);
+
   return (
     <>
-      <PageHero title="السيارات المدعومة" subtitle="نخدم جميع ماركات السيارات اليابانية والأمريكية والأوروبية والكورية" image={keysImg} />
+      <PageHero
+        title="السيارات المدعومة"
+        subtitle="نخدم +30 ماركة عالمية — يابانية، أمريكية، أوروبية، كورية، فاخرة ورياضية"
+        image={keysImg}
+      />
 
-      {/* Key Types */}
-      <section className="container mx-auto section-padding">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-extrabold mb-3">أنواع <span className="gold-text">المفاتيح</span> التي نتعامل معها</h2>
-          <p className="text-muted-foreground">نتعامل مع جميع تقنيات المفاتيح الحديثة والقديمة</p>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {keyTypes.map((k) => (
-            <div key={k.title} className="glass-card p-6 text-center hover:-translate-y-1 transition-transform">
-              <h3 className="font-bold mb-2 gold-text">{k.title}</h3>
-              <p className="text-sm text-muted-foreground">{k.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Brands */}
-      <section className="container mx-auto section-padding">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-extrabold mb-3">الماركات <span className="gold-text">المدعومة</span></h2>
-          <p className="text-muted-foreground">+30 ماركة عالمية - نخدمها جميعاً</p>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {brands.map((b) => (
-            <div key={b.name} className={`glass-card p-5 text-center bg-gradient-to-br ${b.color} hover:scale-105 transition-all duration-300 cursor-default`}>
-              <div className="text-lg font-extrabold mb-1">{b.name}</div>
-              <div className="text-xs text-muted-foreground">{b.category}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-10 glass-card p-6 text-center">
-          <p className="text-muted-foreground">
-            <span className="gold-text font-bold">ملاحظة:</span> القائمة لا تشمل كل الماركات.
-            إذا لم تجد سيارتك، تواصل معنا — نتعامل مع جميع الماركات والموديلات تقريباً.
+      {/* Search + filters */}
+      <section className="container mx-auto px-4 -mt-6 md:-mt-10 relative z-10">
+        <div className="glass-card p-4 md:p-6">
+          <div className="relative mb-4">
+            <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <Input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="ابحث عن ماركة سيارتك أو الموديل... (مثال: لاندكروزر، باترول، BMW)"
+              className="pr-11 h-12 text-base bg-background/60 border-border/60"
+            />
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {CATEGORIES.map((cat) => (
+              <Button
+                key={cat}
+                size="sm"
+                variant={activeCat === cat ? "default" : "secondary"}
+                onClick={() => setActiveCat(cat)}
+                className={
+                  activeCat === cat
+                    ? "bg-gradient-to-r from-primary to-primary-glow text-primary-foreground border-0"
+                    : ""
+                }
+              >
+                {cat}
+              </Button>
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground mt-3">
+            عرض <span className="gold-text font-bold">{filtered.length}</span> ماركة
           </p>
         </div>
       </section>
+
+      {/* Brands grid */}
+      <section className="container mx-auto section-padding pt-8">
+        {filtered.length === 0 ? (
+          <div className="glass-card p-10 text-center">
+            <CarIcon className="h-12 w-12 mx-auto mb-3 text-muted-foreground" />
+            <p className="text-lg mb-2">لم يتم العثور على نتائج</p>
+            <p className="text-muted-foreground text-sm mb-4">
+              تواصل معنا مباشرة، فنحن نتعامل مع جميع الماركات تقريباً
+            </p>
+            <a href={WA_LINK("مرحباً، أحتاج خدمة لمفتاح سيارتي")}>
+              <Button className="bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp))]/90 text-white">
+                <MessageCircle className="h-4 w-4" /> تواصل واتساب
+              </Button>
+            </a>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
+            {filtered.map((b) => (
+              <button
+                key={b.name}
+                onClick={() => setSelected(b)}
+                className="glass-card group p-4 md:p-5 text-center hover:scale-105 hover:border-primary/60 transition-all duration-300 cursor-pointer relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative">
+                  <div className="text-base md:text-lg font-extrabold mb-1 group-hover:gold-text transition-colors">
+                    {b.name}
+                  </div>
+                  <div className="text-[10px] md:text-xs text-muted-foreground mb-2">
+                    {b.en}
+                  </div>
+                  <Badge variant="secondary" className="text-[10px]">
+                    {b.category}
+                  </Badge>
+                  <div className="flex justify-center gap-1 mt-3 opacity-70 group-hover:opacity-100">
+                    {b.keys.slice(0, 3).map((k) => {
+                      const Icon = KEY_LABEL[k].icon;
+                      return (
+                        <Icon key={k} className="h-3.5 w-3.5 text-primary" />
+                      );
+                    })}
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div className="mt-8 glass-card p-5 md:p-6 text-center">
+          <p className="text-sm md:text-base text-muted-foreground">
+            <span className="gold-text font-bold">ملاحظة:</span> القائمة لا تشمل كل الماركات.
+            إذا لم تجد سيارتك، تواصل معنا — نتعامل مع جميع الماركات والموديلات تقريباً في الكويت.
+          </p>
+        </div>
+      </section>
+
+      {/* Brand details dialog */}
+      <Dialog open={!!selected} onOpenChange={(o) => !o && setSelected(null)}>
+        <DialogContent className="max-w-lg glass-card border-border/60" dir="rtl">
+          {selected && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl">
+                  مفاتيح <span className="gold-text">{selected.name}</span>
+                  <span className="text-sm text-muted-foreground font-normal mr-2">
+                    ({selected.en})
+                  </span>
+                </DialogTitle>
+                <DialogDescription>
+                  نوفر جميع خدمات المفاتيح لـ {selected.name} — فتح، برمجة، نسخ، وصيانة.
+                </DialogDescription>
+              </DialogHeader>
+
+              <div>
+                <h4 className="font-bold mb-3 text-sm">أنواع المفاتيح المدعومة:</h4>
+                <div className="space-y-2">
+                  {selected.keys.map((k) => {
+                    const Icon = KEY_LABEL[k].icon;
+                    return (
+                      <div
+                        key={k}
+                        className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50 border border-border/40"
+                      >
+                        <div className="h-9 w-9 rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center text-primary-foreground">
+                          <Icon className="h-4 w-4" />
+                        </div>
+                        <span className="font-medium text-sm">{KEY_LABEL[k].ar}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {selected.popular && selected.popular.length > 0 && (
+                <div>
+                  <h4 className="font-bold mb-2 text-sm">موديلات شائعة نخدمها:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selected.popular.map((m) => (
+                      <Badge key={m} variant="outline" className="border-primary/40">
+                        {m}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="grid grid-cols-2 gap-2 pt-2">
+                <a
+                  href={WA_LINK(
+                    `مرحباً أبو مي، أحتاج خدمة مفتاح لسيارة ${selected.name} (${selected.en})`,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-full bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp))]/90 text-white">
+                    <MessageCircle className="h-4 w-4" /> واتساب
+                  </Button>
+                </a>
+                <a href={`tel:+${PHONE}`}>
+                  <Button className="w-full btn-gold">
+                    <Phone className="h-4 w-4" /> اتصال مباشر
+                  </Button>
+                </a>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       <CTASection />
     </>
