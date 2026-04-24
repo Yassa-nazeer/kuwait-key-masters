@@ -52,7 +52,7 @@ const BRANDS: Brand[] = [
   { name: "نيسان", en: "Nissan", category: "ياباني", keys: ["smart", "remote", "transponder"], popular: ["باترول", "صني", "التيما", "ماكسيما"] },
   { name: "هوندا", en: "Honda", category: "ياباني", keys: ["smart", "remote"], popular: ["أكورد", "سيفيك", "CR-V"] },
   { name: "ميتسوبيشي", en: "Mitsubishi", category: "ياباني", keys: ["remote", "transponder"], popular: ["باجيرو", "لانسر", "ASX"] },
-  { name: "مازda", en: "Mazda", category: "ياباني", keys: ["smart", "remote"], popular: ["6", "CX-5", "CX-9"] },
+  { name: "مازدا", en: "Mazda", category: "ياباني", keys: ["smart", "remote"], popular: ["6", "CX-5", "CX-9"] },
   { name: "سوزوكي", en: "Suzuki", category: "ياباني", keys: ["remote", "transponder"], popular: ["جراند فيتارا", "سويفت"] },
   { name: "إنفينيتي", en: "Infiniti", category: "فاخر", keys: ["smart", "remote"], popular: ["QX80", "Q50", "QX60"] },
   { name: "أكورا", en: "Acura", category: "فاخر", keys: ["smart", "remote"], popular: ["MDX", "TLX"] },
