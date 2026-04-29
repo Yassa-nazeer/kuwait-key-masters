@@ -6,6 +6,8 @@ import progImg from "@/assets/programming.jpg";
 import openImg from "@/assets/car-opening.jpg";
 import homeImg from "@/assets/home-lock.jpg";
 import vanImg from "@/assets/mobile-service.jpg";
+import poster1 from "@/assets/brand-poster-1.jpg";
+import poster2 from "@/assets/brand-poster-2.jpg";
 import CTASection from "@/components/CTASection";
 
 const services = [
