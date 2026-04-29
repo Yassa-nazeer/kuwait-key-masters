@@ -12,12 +12,12 @@ const CTASection = () => (
           نصل إليك في أي مكان بالكويت خلال دقائق. خدمة 24 ساعة، أسعار مناسبة، وضمان على الخدمة.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <a href="tel:25747027" className="btn-gold">
+          <a href="tel:66610023" className="btn-gold">
             <Phone className="h-5 w-5" />
-            اتصل: 25747027
+            اتصل: 66610023
           </a>
           <a
-            href="https://wa.me/96525747027"
+            href="https://wa.me/96566610023"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--whatsapp))] px-6 py-3 font-bold text-white shadow-lg transition-all hover:scale-105"

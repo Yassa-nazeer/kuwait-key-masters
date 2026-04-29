@@ -35,8 +35,8 @@ const Footer = () => {
         <div>
           <h4 className="mb-3 font-bold text-primary">تواصل معنا</h4>
           <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /><a href="tel:25747027" dir="ltr">+965 25747027</a></li>
-            <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4 text-success" /><a href="https://wa.me/96525747027" dir="ltr">WhatsApp</a></li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /><a href="tel:66610023" dir="ltr">+965 66610023</a></li>
+            <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4 text-success" /><a href="https://wa.me/96566610023" dir="ltr">WhatsApp</a></li>
             <li className="flex items-center gap-2"><Clock className="h-4 w-4 text-accent" />متاح 24 ساعة طوال الأسبوع</li>
             <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-destructive" />جميع مناطق دولة الكويت</li>
           </ul>
