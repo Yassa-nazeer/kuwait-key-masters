@@ -1,7 +1,9 @@
-import { Award, Users, Clock, Shield, Target, Heart } from "lucide-react";
+import { Award, Users, Clock, Shield, Target, Heart, CircleCheck, Phone, MessageCircle } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import CTASection from "@/components/CTASection";
 import progImg from "@/assets/programming.jpg";
+import poster1 from "@/assets/brand-poster-1.jpg";
+import poster2 from "@/assets/brand-poster-2.jpg";
 
 const About = () => {
   return (
