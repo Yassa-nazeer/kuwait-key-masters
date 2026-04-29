@@ -10,11 +10,15 @@ const Footer = () => {
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-glow">
               <Key className="h-5 w-5 text-primary-foreground" />
             </div>
-            <span className="text-lg font-extrabold gold-text">الركن الدولي</span>
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg font-extrabold gold-text">شركة الركن الدولي</span>
+              <span className="text-xs text-muted-foreground">لكهرباء السيارات</span>
+            </div>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            فني مفاتيح سيارات متنقل في الكويت، خدمة 24 ساعة بأحدث الأجهزة وأسعار مناسبة.
+            متخصصون في فتح وبرمجة مفاتيح جميع السيارات العادية والذكية وبرمجة جميع أنواع الريموتات بأحدث الأجهزة. خدمة سريعة 24 ساعة في جميع مناطق الكويت.
           </p>
+          <p className="mt-3 text-xs text-primary font-bold">شعارنا: الأمانة والسرعة ⭐</p>
         </div>
 
         <div>
