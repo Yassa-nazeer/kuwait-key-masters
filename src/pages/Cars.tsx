@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import keysImg from "@/assets/car-keys.jpg";
 
-const PHONE = "96525747027";
+const PHONE = "96566610023";
 const WA_LINK = (text: string) =>
   `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
 
