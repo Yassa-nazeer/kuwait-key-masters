@@ -50,6 +50,33 @@ const Contact = () => {
           ))}
         </div>
 
+        {/* Google Maps */}
+        <div className="glass-card overflow-hidden mb-10">
+          <div className="p-6 border-b border-border/50 flex items-center justify-between flex-wrap gap-3">
+            <div>
+              <h3 className="text-xl font-extrabold gold-text mb-1">موقعنا على الخريطة</h3>
+              <p className="text-sm text-muted-foreground">يمكنك زيارتنا أو الاستدلال على موقعنا عبر خرائط جوجل</p>
+            </div>
+            <a
+              href="https://goo.gl/maps/xrpMojuvQM65i7PP7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold !px-5 !py-2 text-sm"
+            >
+              <MapPin className="h-4 w-4" /> فتح في خرائط جوجل
+            </a>
+          </div>
+          <iframe
+            title="موقع شركة الركن الدولي على الخريطة"
+            src="https://www.google.com/maps?q=29.3375,47.9744&hl=ar&z=11&output=embed"
+            width="100%"
+            height="380"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="block w-full border-0"
+          ></iframe>
+        </div>
+
         <div className="glass-card p-8 md:p-12 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
           <div className="relative">
