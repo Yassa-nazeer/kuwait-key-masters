@@ -134,27 +134,36 @@ const Index = () => {
         </div>
       </section>
 
-      {/* MOBILE SERVICE */}
+      {/* TRANSPORT COMPANY */}
       <section className="container mx-auto section-padding">
         <div className="glass-card overflow-hidden grid md:grid-cols-2 items-center">
-          <img src={vanImg} alt="خدمة متنقلة" className="h-full w-full object-cover min-h-[300px]" loading="lazy" />
+          <img src={vanImg} alt="شركة النقل" className="h-full w-full object-cover min-h-[300px]" loading="lazy" />
           <div className="p-8 md:p-12">
             <div className="inline-flex items-center gap-2 rounded-full bg-accent/20 text-accent px-3 py-1 text-xs font-bold mb-3">
-              <MapPin className="h-3 w-3" /> خدمة متنقلة
+              <Car className="h-3 w-3" /> خدمة نقل سيارات
             </div>
-            <h2 className="text-3xl font-extrabold mb-4">نصل إليك أينما كنت في <span className="gold-text">الكويت</span></h2>
+            <h2 className="text-3xl font-extrabold mb-4">
+              <span className="gold-text">شركة النقل</span>
+            </h2>
             <p className="text-muted-foreground mb-6">
-              فريقنا المتنقل مجهز بأحدث الأجهزة والمعدات للوصول إلى أي منطقة بدولة الكويت
-              في أسرع وقت ممكن. لا تقلق إذا تعطلت سيارتك أو فقدت مفاتيحك — اتصل بنا في أي وقت.
+              خدمة نقل سيارات احترافية في جميع مناطق الكويت — سطحات حديثة وفريق مدرب لنقل سيارتك بأمان تام إلى أي وجهة على مدار 24 ساعة.
             </p>
             <ul className="space-y-2 mb-6">
-              {["جميع محافظات الكويت", "وصول خلال 15-30 دقيقة", "أجهزة برمجة متطورة", "ضمان على الخدمة"].map((t) => (
+              {["نقل سيارات بأمان كامل", "تغطية كل مناطق الكويت", "سطحات حديثة ومجهزة", "خدمة 24 ساعة طوال الأسبوع"].map((t) => (
                 <li key={t} className="flex items-center gap-2 text-sm">
                   <CircleCheck className="h-5 w-5 text-success flex-shrink-0" /> {t}
                 </li>
               ))}
             </ul>
-            <Link to="/areas" className="btn-gold">شاهد مناطق التغطية</Link>
+            <div className="flex flex-wrap gap-3">
+              <a href="tel:66610023" className="btn-gold">
+                <Phone className="h-5 w-5" /> اتصل: 66610023
+              </a>
+              <a href="https://wa.me/96566610023" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--whatsapp))] px-6 py-3 font-bold text-white shadow-lg transition-all hover:scale-105">
+                <MessageCircle className="h-5 w-5" /> واتساب
+              </a>
+            </div>
           </div>
         </div>
       </section>
