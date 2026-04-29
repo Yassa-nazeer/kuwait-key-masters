@@ -6,6 +6,8 @@ import progImg from "@/assets/programming.jpg";
 import openImg from "@/assets/car-opening.jpg";
 import homeImg from "@/assets/home-lock.jpg";
 import vanImg from "@/assets/mobile-service.jpg";
+import poster1 from "@/assets/brand-poster-1.jpg";
+import poster2 from "@/assets/brand-poster-2.jpg";
 import CTASection from "@/components/CTASection";
 
 const services = [
@@ -165,6 +167,55 @@ const Index = () => {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* BRAND POSTERS GALLERY */}
+      <section className="container mx-auto section-padding">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-3">
+            معرض <span className="gold-text">شركة الركن الدولي</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            هويتنا البصرية تعكس احترافيتنا — صور رسمية لشركة الركن الدولي لكهرباء السيارات وبرمجة المفاتيح في الكويت
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {[poster1, poster2].map((p, i) => (
+            <a
+              key={i}
+              href="https://wa.me/96566610023"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card overflow-hidden group block"
+            >
+              <div className="relative">
+                <img
+                  src={p}
+                  alt={`شركة الركن الدولي لكهرباء السيارات - بوستر رسمي ${i + 1}`}
+                  className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+                  loading="lazy"
+                  width={1024}
+                  height={1408}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <div className="mt-8 glass-card p-6 md:p-8 text-center">
+          <h3 className="text-xl md:text-2xl font-extrabold mb-3">
+            <span className="gold-text">شركة الركن الدولي</span> — الحل السريع لمشكلتك
+          </h3>
+          <p className="text-muted-foreground leading-loose max-w-3xl mx-auto">
+            نحن في شركة الركن الدولي لكهرباء السيارات نقدم خدمات متكاملة لفتح وبرمجة مفاتيح جميع أنواع السيارات
+            العادية والذكية، بالإضافة إلى برمجة جميع أنواع الريموتات بأحدث الأجهزة وأعلى التقنيات. فريقنا مكوّن من
+            فنيين مدربين ومتخصصين بخبرة طويلة في جميع أنواع السيارات اليابانية والأمريكية والأوروبية والكورية.
+            نصل إليك أينما كنت في جميع مناطق الكويت خلال دقائق، خدمة 24 ساعة، أمانة في التعامل، سرعة في الأداء،
+            ودقة في العمل. اتصل الآن أو تواصل معنا واتساب على الرقم <strong className="gold-text" dir="ltr">66610023</strong>.
+          </p>
         </div>
       </section>
 
