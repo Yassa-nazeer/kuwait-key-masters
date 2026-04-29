@@ -42,11 +42,12 @@ const Index = () => {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4">
               <span className="gold-text">شركة الركن الدولي</span>
               <br />
-              <span className="text-foreground">لفني مفاتيح السيارات</span>
+              <span className="text-foreground">لكهرباء السيارات</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-6 max-w-lg">
-              فني مفاتيح متنقل في الكويت — خدمة 24 ساعة، فتح وبرمجة ونسخ جميع أنواع المفاتيح بأحدث التقنيات وأقل الأسعار.
+              فنيون متخصصون ومدربون في فتح السيارات بدون كسر، برمجة مفاتيح جميع السيارات العادية والذكية، وبرمجة جميع أنواع الريموتات بأحدث الأجهزة. خدمة سريعة 24 ساعة في جميع مناطق الكويت.
             </p>
+            <p className="mb-4 inline-block rounded-full border border-primary/40 bg-primary/10 px-4 py-1 text-sm font-bold text-primary">⭐ شعارنا: الأمانة والسرعة</p>
 
             <div className="flex flex-wrap gap-3 mb-8">
               <a href="tel:25747027" className="btn-gold">
