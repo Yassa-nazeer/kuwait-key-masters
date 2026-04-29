@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-glow">
               <Key className="h-5 w-5 text-primary-foreground" />
             </div>
-            <span className="text-lg font-extrabold gold-text">أبو مي للمفاتيح</span>
+            <span className="text-lg font-extrabold gold-text">الركن الدولي</span>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
             فني مفاتيح سيارات متنقل في الكويت، خدمة 24 ساعة بأحدث الأجهزة وأسعار مناسبة.
@@ -51,7 +51,7 @@ const Footer = () => {
       </div>
 
       <div className="border-t border-border/50 py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} أبو مي لفني المفاتيح - جميع الحقوق محفوظة
+        © {new Date().getFullYear()} شركة الركن الدولي - جميع الحقوق محفوظة
       </div>
     </footer>
   );

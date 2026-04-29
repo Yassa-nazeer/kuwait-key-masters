@@ -30,7 +30,7 @@ const Index = () => {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={hero} alt="فني مفاتيح أبو مي" className="h-full w-full object-cover" width={1920} height={1080} />
+          <img src={hero} alt="شركة الركن الدولي لكهرباء السيارات" className="h-full w-full object-cover" width={1920} height={1080} />
           <div className="absolute inset-0 bg-gradient-to-l from-background via-background/85 to-background/60" />
         </div>
 
@@ -40,7 +40,7 @@ const Index = () => {
               <Star className="h-4 w-4 fill-primary" /> ثقة الزبائن سر نجاحنا
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4">
-              <span className="gold-text">أبو مي</span>
+              <span className="gold-text">شركة الركن الدولي</span>
               <br />
               <span className="text-foreground">لفني مفاتيح السيارات</span>
             </h1>
@@ -84,7 +84,7 @@ const Index = () => {
       {/* FEATURES */}
       <section className="container mx-auto section-padding">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-3">لماذا <span className="gold-text">أبو مي؟</span></h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-3">لماذا <span className="gold-text">شركة الركن الدولي؟</span></h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             نقدم لك خدمة فنية متكاملة بأعلى معايير الجودة والاحترافية
           </p>

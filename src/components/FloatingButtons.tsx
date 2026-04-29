@@ -5,7 +5,7 @@ const FloatingButtons = () => {
     <>
       {/* WhatsApp - left */}
       <a
-        href="https://wa.me/96525747027?text=مرحبا%20أبو%20مي،%20أحتاج%20خدمة%20فني%20مفاتيح"
+        href="https://wa.me/96525747027?text=مرحبا%20شركة%20الركن%20الدولي،%20أحتاج%20خدمة%20فني%20مفاتيح"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="واتساب"
