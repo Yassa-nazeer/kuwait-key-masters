@@ -12,7 +12,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="animate-fade-up">
             <h2 className="text-3xl font-extrabold mb-4">
-              <span className="gold-text">أبو مي</span> — اسم تثق به
+              <span className="gold-text">شركة الركن الدولي</span> — اسم تثق به
             </h2>
             <p className="text-muted-foreground leading-loose mb-4">
               منذ سنوات طويلة ونحن نقدم خدمات فني المفاتيح في دولة الكويت بأعلى مستويات
@@ -20,7 +20,7 @@ const About = () => {
               لكل من يحتاجها، في أي وقت، وفي أي منطقة بالكويت.
             </p>
             <p className="text-muted-foreground leading-loose mb-4">
-              اليوم، أصبح اسم "أبو مي" مرادفاً للجودة والثقة في مجال فتح وبرمجة مفاتيح
+              اليوم، أصبح اسم "شركة الركن الدولي" مرادفاً للجودة والثقة في مجال فتح وبرمجة مفاتيح
               السيارات والأقفال. نعتمد على فريق من الفنيين المتخصصين المدربين على أحدث
               التقنيات وأجهزة البرمجة العالمية.
             </p>

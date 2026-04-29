@@ -30,7 +30,7 @@ const Index = () => {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={hero} alt="فني مفاتيح أبو مي" className="h-full w-full object-cover" width={1920} height={1080} />
+          <img src={hero} alt="شركة الركن الدولي لكهرباء السيارات" className="h-full w-full object-cover" width={1920} height={1080} />
           <div className="absolute inset-0 bg-gradient-to-l from-background via-background/85 to-background/60" />
         </div>
 
@@ -40,19 +40,20 @@ const Index = () => {
               <Star className="h-4 w-4 fill-primary" /> ثقة الزبائن سر نجاحنا
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4">
-              <span className="gold-text">أبو مي</span>
+              <span className="gold-text">شركة الركن الدولي</span>
               <br />
-              <span className="text-foreground">لفني مفاتيح السيارات</span>
+              <span className="text-foreground">لكهرباء السيارات</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-6 max-w-lg">
-              فني مفاتيح متنقل في الكويت — خدمة 24 ساعة، فتح وبرمجة ونسخ جميع أنواع المفاتيح بأحدث التقنيات وأقل الأسعار.
+              فنيون متخصصون ومدربون في فتح السيارات بدون كسر، برمجة مفاتيح جميع السيارات العادية والذكية، وبرمجة جميع أنواع الريموتات بأحدث الأجهزة. خدمة سريعة 24 ساعة في جميع مناطق الكويت.
             </p>
+            <p className="mb-4 inline-block rounded-full border border-primary/40 bg-primary/10 px-4 py-1 text-sm font-bold text-primary">⭐ شعارنا: الأمانة والسرعة</p>
 
             <div className="flex flex-wrap gap-3 mb-8">
-              <a href="tel:66610023" className="btn-gold">
-                <Phone className="h-5 w-5" /> اتصل: 66610023
+              <a href="tel:25747027" className="btn-gold">
+                <Phone className="h-5 w-5" /> اتصل: 25747027
               </a>
-              <a href="https://wa.me/96566610023" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/96525747027" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--whatsapp))] px-6 py-3 font-bold text-white shadow-lg transition-all hover:scale-105">
                 <MessageCircle className="h-5 w-5" /> واتساب
               </a>
@@ -84,7 +85,7 @@ const Index = () => {
       {/* FEATURES */}
       <section className="container mx-auto section-padding">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-3">لماذا <span className="gold-text">أبو مي؟</span></h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-3">لماذا <span className="gold-text">شركة الركن الدولي؟</span></h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             نقدم لك خدمة فنية متكاملة بأعلى معايير الجودة والاحترافية
           </p>

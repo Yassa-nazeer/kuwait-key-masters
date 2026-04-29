@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import keysImg from "@/assets/car-keys.jpg";
 
-const PHONE = "96566610023";
+const PHONE = "96525747027";
 const WA_LINK = (text: string) =>
   `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
 
@@ -257,7 +257,7 @@ const Cars = () => {
               <div className="grid grid-cols-2 gap-2 pt-2">
                 <a
                   href={WA_LINK(
-                    `مرحباً أبو مي، أحتاج خدمة مفتاح لسيارة ${selected.name} (${selected.en})`,
+                    `مرحباً، شركة الركن الدولي، أحتاج خدمة مفتاح لسيارة ${selected.name} (${selected.en})`,
                   )}
                   target="_blank"
                   rel="noopener noreferrer"

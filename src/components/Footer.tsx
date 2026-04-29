@@ -10,11 +10,15 @@ const Footer = () => {
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-glow">
               <Key className="h-5 w-5 text-primary-foreground" />
             </div>
-            <span className="text-lg font-extrabold gold-text">أبو مي للمفاتيح</span>
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg font-extrabold gold-text">شركة الركن الدولي</span>
+              <span className="text-xs text-muted-foreground">لكهرباء السيارات</span>
+            </div>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            فني مفاتيح سيارات متنقل في الكويت، خدمة 24 ساعة بأحدث الأجهزة وأسعار مناسبة.
+            متخصصون في فتح وبرمجة مفاتيح جميع السيارات العادية والذكية وبرمجة جميع أنواع الريموتات بأحدث الأجهزة. خدمة سريعة 24 ساعة في جميع مناطق الكويت.
           </p>
+          <p className="mt-3 text-xs text-primary font-bold">شعارنا: الأمانة والسرعة ⭐</p>
         </div>
 
         <div>
@@ -31,8 +35,8 @@ const Footer = () => {
         <div>
           <h4 className="mb-3 font-bold text-primary">تواصل معنا</h4>
           <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /><a href="tel:66610023" dir="ltr">+965 66610023</a></li>
-            <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4 text-success" /><a href="https://wa.me/96566610023" dir="ltr">WhatsApp</a></li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /><a href="tel:25747027" dir="ltr">+965 25747027</a></li>
+            <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4 text-success" /><a href="https://wa.me/96525747027" dir="ltr">WhatsApp</a></li>
             <li className="flex items-center gap-2"><Clock className="h-4 w-4 text-accent" />متاح 24 ساعة طوال الأسبوع</li>
             <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-destructive" />جميع مناطق دولة الكويت</li>
           </ul>
@@ -51,7 +55,7 @@ const Footer = () => {
       </div>
 
       <div className="border-t border-border/50 py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} أبو مي لفني المفاتيح - جميع الحقوق محفوظة
+        © {new Date().getFullYear()} شركة الركن الدولي - جميع الحقوق محفوظة
       </div>
     </footer>
   );

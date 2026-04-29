@@ -20,7 +20,10 @@ const Navbar = () => {
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary-glow">
             <Key className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="text-lg font-extrabold gold-text">أبو مي للمفاتيح</span>
+          <div className="flex flex-col leading-tight">
+            <span className="text-base md:text-lg font-extrabold gold-text">شركة الركن الدولي</span>
+            <span className="text-[10px] md:text-xs text-muted-foreground">لكهرباء السيارات</span>
+          </div>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -42,9 +45,9 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <a href="tel:66610023" className="hidden md:inline-flex btn-gold !px-4 !py-2 text-sm">
+        <a href="tel:25747027" className="hidden md:inline-flex btn-gold !px-4 !py-2 text-sm">
           <Phone className="h-4 w-4" />
-          66610023
+          25747027
         </a>
 
         <button onClick={() => setOpen(!open)} className="lg:hidden p-2" aria-label="القائمة">
