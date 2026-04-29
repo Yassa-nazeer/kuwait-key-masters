@@ -42,9 +42,9 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <a href="tel:66610023" className="hidden md:inline-flex btn-gold !px-4 !py-2 text-sm">
+        <a href="tel:25747027" className="hidden md:inline-flex btn-gold !px-4 !py-2 text-sm">
           <Phone className="h-4 w-4" />
-          66610023
+          25747027
         </a>
 
         <button onClick={() => setOpen(!open)} className="lg:hidden p-2" aria-label="القائمة">

@@ -49,10 +49,10 @@ const Index = () => {
             </p>
 
             <div className="flex flex-wrap gap-3 mb-8">
-              <a href="tel:66610023" className="btn-gold">
-                <Phone className="h-5 w-5" /> اتصل: 66610023
+              <a href="tel:25747027" className="btn-gold">
+                <Phone className="h-5 w-5" /> اتصل: 25747027
               </a>
-              <a href="https://wa.me/96566610023" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/96525747027" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--whatsapp))] px-6 py-3 font-bold text-white shadow-lg transition-all hover:scale-105">
                 <MessageCircle className="h-5 w-5" /> واتساب
               </a>

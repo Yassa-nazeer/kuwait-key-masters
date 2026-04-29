@@ -9,26 +9,26 @@ const Contact = () => {
 
       <section className="container mx-auto section-padding">
         <div className="grid md:grid-cols-2 gap-6 mb-10">
-          <a href="tel:66610023" className="glass-card p-8 group hover:scale-[1.02] transition-all">
+          <a href="tel:25747027" className="glass-card p-8 group hover:scale-[1.02] transition-all">
             <div className="flex items-center gap-5">
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary-glow shadow-lg group-hover:rotate-6 transition-transform">
                 <Phone className="h-8 w-8 text-primary-foreground" />
               </div>
               <div>
                 <div className="text-sm text-muted-foreground mb-1">اتصل الآن</div>
-                <div className="text-2xl md:text-3xl font-extrabold gold-text" dir="ltr">+965 66610023</div>
+                <div className="text-2xl md:text-3xl font-extrabold gold-text" dir="ltr">+965 25747027</div>
               </div>
             </div>
           </a>
 
-          <a href="https://wa.me/96566610023" target="_blank" rel="noopener noreferrer" className="glass-card p-8 group hover:scale-[1.02] transition-all">
+          <a href="https://wa.me/96525747027" target="_blank" rel="noopener noreferrer" className="glass-card p-8 group hover:scale-[1.02] transition-all">
             <div className="flex items-center gap-5">
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[hsl(var(--whatsapp))] shadow-lg group-hover:rotate-6 transition-transform">
                 <MessageCircle className="h-8 w-8 text-white" />
               </div>
               <div>
                 <div className="text-sm text-muted-foreground mb-1">واتساب مباشر</div>
-                <div className="text-2xl md:text-3xl font-extrabold text-success" dir="ltr">+965 66610023</div>
+                <div className="text-2xl md:text-3xl font-extrabold text-success" dir="ltr">+965 25747027</div>
               </div>
             </div>
           </a>
@@ -63,10 +63,10 @@ const Contact = () => {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <a href="tel:66610023" className="btn-gold text-lg !px-8 !py-4">
-                <Phone className="h-5 w-5" /> اتصل: 66610023
+              <a href="tel:25747027" className="btn-gold text-lg !px-8 !py-4">
+                <Phone className="h-5 w-5" /> اتصل: 25747027
               </a>
-              <a href="https://wa.me/96566610023" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/96525747027" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--whatsapp))] px-8 py-4 text-lg font-bold text-white shadow-lg transition-all hover:scale-105">
                 <MessageCircle className="h-5 w-5" /> راسلنا واتساب
               </a>
