@@ -139,8 +139,10 @@ const Index = () => {
       {/* EMERGENCY MOBILE KEYS SERVICE */}
       <section className="container mx-auto section-padding">
         <div className="glass-card overflow-hidden grid md:grid-cols-2 items-center">
-          <img src={vanImg} alt="فني مفاتيح سيارات متنقل في الكويت 24 ساعة" className="h-full w-full object-cover min-h-[300px]" loading="lazy" />
-          <div className="p-8 md:p-12">
+          <div className="relative h-48 sm:h-64 md:h-full md:max-h-[420px] overflow-hidden">
+            <img src={vanImg} alt="فني مفاتيح سيارات متنقل في الكويت 24 ساعة" className="h-full w-full object-cover" loading="lazy" />
+          </div>
+          <div className="p-5 sm:p-6 md:p-10">
             <div className="inline-flex items-center gap-2 rounded-full bg-accent/20 text-accent px-3 py-1 text-xs font-bold mb-3">
               <Zap className="h-3 w-3" /> خدمة طوارئ مفاتيح سيارات
             </div>
