@@ -136,22 +136,28 @@ const Index = () => {
         </div>
       </section>
 
-      {/* TRANSPORT COMPANY */}
+      {/* EMERGENCY MOBILE KEYS SERVICE */}
       <section className="container mx-auto section-padding">
         <div className="glass-card overflow-hidden grid md:grid-cols-2 items-center">
-          <img src={vanImg} alt="شركة النقل" className="h-full w-full object-cover min-h-[300px]" loading="lazy" />
+          <img src={vanImg} alt="فني مفاتيح سيارات متنقل في الكويت 24 ساعة" className="h-full w-full object-cover min-h-[300px]" loading="lazy" />
           <div className="p-8 md:p-12">
             <div className="inline-flex items-center gap-2 rounded-full bg-accent/20 text-accent px-3 py-1 text-xs font-bold mb-3">
-              <Car className="h-3 w-3" /> خدمة نقل سيارات
+              <Zap className="h-3 w-3" /> خدمة طوارئ مفاتيح سيارات
             </div>
             <h2 className="text-3xl font-extrabold mb-4">
-              <span className="gold-text">شركة النقل</span>
+              <span className="gold-text">فني مفاتيح متنقل</span> — نوصلك أينما كنت
             </h2>
             <p className="text-muted-foreground mb-6">
-              خدمة نقل سيارات احترافية في جميع مناطق الكويت — سطحات حديثة وفريق مدرب لنقل سيارتك بأمان تام إلى أي وجهة على مدار 24 ساعة.
+              ضاعت مفاتيح سيارتك؟ ريموت السيارة ما يشتغل؟ نحن نوصلك في أي مكان بالكويت خلال دقائق. فتح سيارات بدون
+              كسر، عمل مفتاح بدل فاقد، نسخ مفاتيح مع شريحة، وبرمجة ريموتات جميع الماركات بأحدث الأجهزة.
             </p>
             <ul className="space-y-2 mb-6">
-              {["نقل سيارات بأمان كامل", "تغطية كل مناطق الكويت", "سطحات حديثة ومجهزة", "خدمة 24 ساعة طوال الأسبوع"].map((t) => (
+              {[
+                "فتح سيارات مغلقة بدون أي ضرر",
+                "مفتاح سيارة بدل فاقد خلال دقائق",
+                "برمجة مفاتيح ذكية وعادية لجميع السيارات",
+                "خدمة طوارئ 24 ساعة في كل مناطق الكويت",
+              ].map((t) => (
                 <li key={t} className="flex items-center gap-2 text-sm">
                   <CircleCheck className="h-5 w-5 text-success flex-shrink-0" /> {t}
                 </li>
@@ -161,9 +167,9 @@ const Index = () => {
               <a href="tel:66610023" className="btn-gold">
                 <Phone className="h-5 w-5" /> اتصل: 66610023
               </a>
-              <a href="https://wa.me/96566610023" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/96566610023?text=ابي%20فني%20مفاتيح%20الحين" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--whatsapp))] px-6 py-3 font-bold text-white shadow-lg transition-all hover:scale-105">
-                <MessageCircle className="h-5 w-5" /> واتساب
+                <MessageCircle className="h-5 w-5" /> ابي فني مفاتيح الحين
               </a>
             </div>
           </div>
