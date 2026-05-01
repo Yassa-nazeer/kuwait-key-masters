@@ -36,12 +36,12 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-l from-background via-background/85 to-background/60" />
         </div>
 
-        <div className="relative container mx-auto px-4 py-20 md:py-32 grid md:grid-cols-2 items-center gap-8">
+        <div className="relative container mx-auto px-4 py-14 sm:py-20 md:py-32 grid md:grid-cols-2 items-center gap-8">
           <div className="animate-fade-up">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm text-primary mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs sm:text-sm text-primary mb-4">
               <Star className="h-4 w-4 fill-primary" /> ثقة الزبائن سر نجاحنا
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4">
               <span className="gold-text">شركة الركن الدولي</span>
               <br />
               <span className="text-foreground">لكهرباء السيارات</span>
