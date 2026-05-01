@@ -6,6 +6,7 @@ import progImg from "@/assets/programming.jpg";
 import openImg from "@/assets/car-opening.jpg";
 import homeImg from "@/assets/home-lock.jpg";
 import vanImg from "@/assets/mobile-service.jpg";
+import engineImg from "@/assets/engine-repair.jpg";
 import poster1 from "@/assets/brand-poster-1.jpg";
 import poster2 from "@/assets/brand-poster-2.jpg";
 import CTASection from "@/components/CTASection";
@@ -174,6 +175,50 @@ const Index = () => {
                 <MessageCircle className="h-5 w-5" /> ابي فني مفاتيح الحين
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CAR MAINTENANCE & ENGINE REPAIR */}
+      <section className="container mx-auto section-padding">
+        <div className="glass-card overflow-hidden grid md:grid-cols-2 items-center">
+          <div className="p-5 sm:p-6 md:p-10 order-2 md:order-1">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/15 text-primary px-3 py-1 text-xs font-bold mb-3">
+              <Wrench className="h-3 w-3" /> صيانة وتصليح المكاين
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold mb-4">
+              <span className="gold-text">صيانة السيارات</span> — تصفية وتصليح المكاين
+            </h2>
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              في شركة الركن الدولي نقدم خدمات متكاملة لصيانة السيارات وتصفية وتصليح المكاين بأيدي فنيين متخصصين
+              وبأحدث الأجهزة والمعدات. نتعامل مع جميع أنواع السيارات اليابانية والأمريكية والأوروبية والكورية،
+              ونضمن لك أداءً ممتازًا للمحرك وعمر أطول لسيارتك.
+            </p>
+            <ul className="space-y-2 mb-6">
+              {[
+                "تصفية المكاين وتنظيفها بالكامل من الداخل",
+                "تصليح وتجديد المحركات بجميع أنواعها",
+                "كشف أعطال المحرك بأجهزة الفحص الإلكترونية",
+                "تغيير الزيوت والفلاتر وقطع الغيار الأصلية",
+                "ضمان على جميع أعمال الصيانة والتصليح",
+              ].map((t) => (
+                <li key={t} className="flex items-center gap-2 text-sm">
+                  <CircleCheck className="h-5 w-5 text-success flex-shrink-0" /> {t}
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-3">
+              <a href="tel:66610023" className="btn-gold">
+                <Phone className="h-5 w-5" /> اتصل: 66610023
+              </a>
+              <a href="https://wa.me/96566610023?text=ابي%20صيانة%20سيارة" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--whatsapp))] px-6 py-3 font-bold text-white shadow-lg transition-all hover:scale-105">
+                <MessageCircle className="h-5 w-5" /> احجز صيانة الآن
+              </a>
+            </div>
+          </div>
+          <div className="relative h-48 sm:h-64 md:h-full md:max-h-[420px] overflow-hidden order-1 md:order-2">
+            <img src={engineImg} alt="صيانة السيارات وتصفية وتصليح المكاين - شركة الركن الدولي" className="h-full w-full object-cover" loading="lazy" width={1280} height={896} />
           </div>
         </div>
       </section>
