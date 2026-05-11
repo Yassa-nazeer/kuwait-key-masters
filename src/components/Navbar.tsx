@@ -13,6 +13,16 @@ const links = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  // دالة تسجيل التحويل لجوجل أدز
+  const handleConversion = (url: string) => {
+    if (typeof (window as any).gtag_report_conversion === 'function') {
+      (window as any).gtag_report_conversion(url);
+    } else {
+      window.location.href = url;
+    }
+  };
+
   return (
     <header className="sticky top-0 z-40 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -45,7 +55,15 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <a href="tel:66610023" className="hidden md:inline-flex btn-gold !px-4 !py-2 text-sm">
+        {/* زر الاتصال في الهيدر مع تتبع التحويل */}
+        <a 
+          href="tel:66610023" 
+          className="hidden md:inline-flex btn-gold !px-4 !py-2 text-sm"
+          onClick={(e) => {
+            e.preventDefault();
+            handleConversion("tel:66610023");
+          }}
+        >
           <Phone className="h-4 w-4" />
           66610023
         </a>
